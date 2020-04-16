@@ -40,6 +40,8 @@ module.exports = {
                 } else {
                     unmuteEmbed.addField(`Moderator`, `${message.author.tag}`, true);
                 }
+            } else {
+                unmuteEmbed.addField(`Moderator`, `${message.author.tag}`, true);
             }
             unmuteEmbed.addField(`Reason`, reason);
             message.channel.send(unmuteEmbed);
