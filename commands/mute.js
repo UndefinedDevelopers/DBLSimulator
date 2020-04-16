@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const fse = require('fs-extra');
 
 module.exports = {
-    name: "Mute",
+    name: "mute",
     description: "mutes a user.",
     usage: '<mention or tag or id> [reason]',
     category: 'dbl',
