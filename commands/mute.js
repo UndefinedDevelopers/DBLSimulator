@@ -59,7 +59,7 @@ module.exports = {
                     }
                 }
             }
-            
+            muteEmbed.setTimestamp();
             message.channel.send(muteEmbed);
         });
     }
