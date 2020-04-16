@@ -39,11 +39,10 @@ module.exports = {
             return message.channel.send(helpEmbed).catch(err => console.error(err));
         } else if (command) {
             const helpEmbed = new Discord.MessageEmbed()
-                .setColor("#72da7e")
-                .setTitle("Command details")
-                .setDescription(`Here is some info on the command ${command}.`)
-                .addField("Details", `Description: ${client.commands.get(command).description}`)
-
+            .setColor("#72da7e")
+            .setTitle("Command details")
+            .setDescription(`Here is some info on the command ${command}.`)
+            .addField("Details", `Description: ${client.commands.get(command).description}`)
             return message.channel.send(helpEmbed).catch(err => console.error(err))
         }
     }
