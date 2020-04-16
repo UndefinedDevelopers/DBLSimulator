@@ -2,11 +2,11 @@ const Discord = require('discord.js');
 const fse = require('fs-extra');
 
 module.exports = {
-    name: "decline",
-    description: "declines a user.",
+    name: "unban",
+    description: "Unbans a user.",
     usage: '<mention or tag or id> [reason]',
     category: 'dbl',
-    example: 'dbl-decline Aprixia',
+    example: 'dbl-unban Aprixia',
 
     async code(client, message, args) {
         let user = message.mentions.users.first();
@@ -18,21 +18,22 @@ module.exports = {
             return message.channel.send(errEmbed).catch(err => err);
         }
         fse.readJson(`reasons.json`, (err, reasons) => {
+            let Case = Math.floor(Math.random() * (50000 - 20000) + 20000);
             let reason = args.slice(1).join(' ');
-            let declineEmbed = new Discord.MessageEmbed()
-                .setTitle(`Bot declined`)
-                .setColor('#4196f7')
+            let unbanEmbed = new Discord.MessageEmbed()
+                .setTitle(`unban | Case #${Case}`)
+                .setColor('#dd2e44')
             if (user.bot) {
-                declineEmbed.addField("Bot", `${user.tag}`, true);
+                unbanEmbed.addField("Bot", `${user.tag}`, true);
             } else {
-                declineEmbed.addField("User", `${user.tag}`, true);
+                unbanEmbed.addField("User", `${user.tag}`, true);
             }
             if (!reason) {
-                reason = reasons.declineReason[Math.floor(Math.random() * (1 - 0) + 0)];
+                reason = reasons.unbanReason[Math.floor(Math.random() * (1 - 0) + 0)];
             }
-            declineEmbed.addField(`Moderator`, `${message.author.tag}`, true);
-            declineEmbed.addField(`Reason`, reason);
-            message.channel.send(declineEmbed);
+            unbanEmbed.addField(`Moderator`, `${message.author.tag}`, true);
+            unbanEmbed.addField(`Reason`, reason);
+            message.channel.send(unbanEmbed);
         });
     }
 }
