@@ -4,7 +4,8 @@
   "description": "A top.gg simulator",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "debug": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/CollierDevs/DBLSimulator/issues"
   },
-  "homepage": "https://github.com/CollierDevs/DBLSimulator#readme"
+  "homepage": "https://github.com/CollierDevs/DBLSimulator#readme",
+  "dependencies": {
+    "discord.js": "^12.1.1",
+    "dotenv": "^8.2.0",
+    "fs": "0.0.1-security",
+    "fs-extra": "^9.0.0"
+  }
 }
