@@ -47,16 +47,16 @@ module.exports = {
                         console.log(time)
                         if (['minute', 'minutes'].some(Time => time.toLowerCase().indexOf(Time) >= 2)) {
                             let timeUn = Date.now()+time.slice(0, time.search(' '))*60000;
-                            muteEmbed.setFooter(new Date(timeUn).toUTCString()); 
+                            muteEmbed.setFooter(`Unmute at: `+new Date(timeUn).toUTCString()); 
                         } else if (['hour', 'hours'].some(Time => time.toLowerCase().indexOf(Time) >= 2)) {
                             let timeUn = Date.now()+time.slice(0, time.search(' '))*3600000;
-                            muteEmbed.setFooter(new Date(timeUn).toUTCString());
+                            muteEmbed.setFooter(`Unmute at: `+new Date(timeUn).toUTCString());
                         } else if (['day', 'days'].some(Time => time.toLowerCase().indexOf(Time) >= 2)) {
                             let timeUn = Date.now()+time.slice(0, time.search(' '))*86400000;
-                            muteEmbed.setFooter(new Date(timeUn).toUTCString());
+                            muteEmbed.setFooter(`Unmute at: `+new Date(timeUn).toUTCString());
                         } else if (['week', 'weeks'].some(Time => time.toLowerCase().indexOf(Time) >= 2)) {
                             let timeUn = Date.now()+time.slice(0, time.search(' '))*86400000*7;
-                            muteEmbed.setFooter(new Date(timeUn).toUTCString());
+                            muteEmbed.setFooter(`Unmute at: `+new Date(timeUn).toUTCString());
                         }
                     }
                 }
