@@ -22,7 +22,7 @@ module.exports = {
             let reason = args.slice(1).join(' ');
             let banEmbed = new Discord.MessageEmbed()
                 .setTitle(`ban | Case #${Case}`)
-                .setColor('36393f')
+                .setColor('#dd2e44')
             if (user.bot) {
                 banEmbed.addField("Bot", `${user.tag}`, true);
             } else {
