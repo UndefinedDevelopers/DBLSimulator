@@ -1,12 +1,11 @@
-module.exports = (client) => {
+module.exports = async (client) => {
 	const bootchannel = client.channels.cache.find(c => c.id === "700328938609574049")
-	async () => {
 		let fetched;
-		do {
-			fetched = await bootchannel.messages.fetch({limit:100})
-			bootchannel.bulkDelete(fetched.size);
-		}
-		while(fetched.size >= 2);
+	do {
+		fetched = await bootchannel.messages.fetch({limit:100})
+		bootchannel.send(`cool: ${fetched}`)
+		bootchannel.bulkDelete(fetched.size);
 	}
+	while(fetched.size >= 2);
  	bootchannel.send("Looks like I am back online!")
 }
