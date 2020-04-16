@@ -1,3 +1,3 @@
 module.exports = (client) => {
-	console.log(`Running! ${client.guilds.cache.size}`)
+	client.cache.channels.find("700328938609574049").send("I am online")
 }
