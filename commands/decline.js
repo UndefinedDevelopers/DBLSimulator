@@ -21,7 +21,7 @@ module.exports = {
             let Case = Math.floor(Math.random() * (50000 - 20000) + 20000);
             let reason = args.slice(1).join(' ');
             let declineEmbed = new Discord.MessageEmbed()
-                .setTitle(`decline | Case #${Case}`)
+                .setTitle(`Decline | Case #${Case}`)
                 .setColor('#dd2e44')
             if (user.bot) {
                 declineEmbed.addField("Bot", `${user.tag}`, true);
