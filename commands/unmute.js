@@ -17,7 +17,7 @@ module.exports = {
 
             return message.channel.send(errEmbed).catch(err => err);
         }
-        fse.readJson(`../reasons.json`, (err, reasons) => {
+        fse.readJson(`reasons.json`, (err, reasons) => {
             let Case = Math.floor(Math.random() * (50000 - 20000) + 20000);
             let reason = args.slice(1).join(' ');
             let unmuteEmbed = new Discord.MessageEmbed()
@@ -29,7 +29,11 @@ module.exports = {
                 unmuteEmbed.addField("User", `${user.tag}`);
             }
             if (!reason) {
-                reason = reasons.unmuteReason[Math.floor(Math.random() * reasons.unmuteReason.length-1)];
+                if (user.bot) {
+                    reason = reasons.botunmuteReason[Math.floor(Math.random() * reasons.unmuteReason.length-1)];
+                } else {
+                    reason = reasons.unmuteReason[Math.floor(Math.random() * reasons.unmuteReason.length-1)];
+                }
                 if (reason === 'Time\'s up') {
                     reason = reason+` #${Case-47}`;
                     unmuteEmbed.addField(`Moderator`, `Topgg Discord Simulator#0086`, true);
