@@ -24,15 +24,15 @@ module.exports = {
                 .setTitle(`Unmute | Case #${Case}`)
                 .setColor('08de06')
             if (user.bot) {
-                unmuteEmbed.addField("Bot", `${user.tag}`);
+                unmuteEmbed.addField("Bot", `${user.tag}`, true);
             } else {
-                unmuteEmbed.addField("User", `${user.tag}`);
+                unmuteEmbed.addField("User", `${user.tag}`, true);
             }
             if (!reason) {
                 if (user.bot) {
-                    reason = reasons.botunmuteReason[Math.floor(Math.random() * reasons.unmuteReason.length)];
+                    reason = reasons.botunmuteReason[Math.floor(Math.random() * (4 - 0) + 0)];
                 } else {
-                    reason = reasons.unmuteReason[Math.floor(Math.random() * reasons.unmuteReason.length)];
+                    reason = reasons.unmuteReason[Math.floor(Math.random() * (1 - 0) + 0)];
                 }
                 if (reason === 'Time\'s up') {
                     reason = reason+` #${Case-47}`;
