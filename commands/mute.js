@@ -34,34 +34,26 @@ module.exports = {
                 } else {
                     reason = reasons.muteReason[Math.floor(Math.random() * (1 - 0) + 0)];
                 }
-                if (reason === 'Time\'s up') {
-                    reason = reason+` #${Case-47}`;
-                    muteEmbed.addField(`Moderator`, `Topgg Discord Simulator#0086`, true);
-                } else {
-                    muteEmbed.addField(`Moderator`, `${message.author.tag}`, true);
-                }
-            } else {
-                muteEmbed.addField(`Moderator`, `${message.author.tag}`, true);
             }
+            muteEmbed.addField(`Moderator`, `${message.author.tag}`, true);
             muteEmbed.addField(`Reason`, reason);
             if (reason) {
                 let timeInt = reason.search(' | ');
                 if (timeInt) {
                     let time = reason.slice(timeInt+2);
-                    console.log(time);
-                    if (['minute', 'minutes', 'hour', 'hours', 'day', 'days', 'week', 'weeks'].some(Time => time.toLowerCase().indexOf(Time) >= 2)) {
+                    if (['minute', 'minutes', 'hour', 'hours', 'day', 'days', 'week', 'weeks'].some(time => time.toLowerCase().indexOf(time) >= 2)) {
                         let timeNow = Date.now();
-                        if (['minute', 'minutes'].some(Time => time.toLowerCase().indexOf(Time) >= 2)) {
-                            let timeUn = Date.now()+Time.slice(0, Time.search(' '))*60000;
+                        if (['minute', 'minutes'].some(time => time.toLowerCase().indexOf(time) >= 2)) {
+                            let timeUn = Date.now()+time.slice(0, time.search(' '))*60000;
                             muteEmbed.setFooter(new Date(timeUn));
-                        } else if (['hour', 'hours'].some(Time => time.toLowerCase().indexOf(Time) >= 2)) {
-                            let timeUn = Date.now()+Time.slice(0, Time.search(' '))*3600000;
+                        } else if (['hour', 'hours'].some(time => time.toLowerCase().indexOf(time) >= 2)) {
+                            let timeUn = Date.now()+time.slice(0, time.search(' '))*3600000;
                             muteEmbed.setFooter(new Date(timeUn));
-                        } else if (['day', 'days'].some(Time => time.toLowerCase().indexOf(Time) >= 2)) {
-                            let timeUn = Date.now()+Time.slice(0, Time.search(' '))*86400000;
+                        } else if (['day', 'days'].some(time => time.toLowerCase().indexOf(time) >= 2)) {
+                            let timeUn = Date.now()+time.slice(0, time.search(' '))*86400000;
                             muteEmbed.setFooter(new Date(timeUn));
-                        } else if (['week', 'weeks'].some(Time => time.toLowerCase().indexOf(Time) >= 2)) {
-                            let timeUn = Date.now()+Time.slice(0, Time.search(' '))*86400000*7;
+                        } else if (['week', 'weeks'].some(time => time.toLowerCase().indexOf(time) >= 2)) {
+                            let timeUn = Date.now()+time.slice(0, time.search(' '))*86400000*7;
                             muteEmbed.setFooter(new Date(timeUn));
                         }
                     }
