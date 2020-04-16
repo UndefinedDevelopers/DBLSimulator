@@ -59,6 +59,7 @@ module.exports = {
                     }
                 }
             }
+            
             message.channel.send(muteEmbed);
         });
     }

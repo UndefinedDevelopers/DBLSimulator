@@ -21,8 +21,8 @@ module.exports = {
             let Case = Math.floor(Math.random() * (50000 - 20000) + 20000);
             let reason = args.slice(1).join(' ');
             let unbanEmbed = new Discord.MessageEmbed()
-                .setTitle(`unban | Case #${Case}`)
-                .setColor('#dd2e44')
+            .setTitle(`Unban | Case #${Case}`)
+            .setColor('#dd2e44')
             if (user.bot) {
                 unbanEmbed.addField("Bot", `${user.tag}`, true);
             } else {
@@ -33,6 +33,7 @@ module.exports = {
             }
             unbanEmbed.addField(`Moderator`, `${message.author.tag}`, true);
             unbanEmbed.addField(`Reason`, reason);
+            unbanEmbed.setTimestamp();
             message.channel.send(unbanEmbed);
         });
     }
