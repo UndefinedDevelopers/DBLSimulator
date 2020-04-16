@@ -20,8 +20,8 @@ module.exports = {
         fse.readJson(`reasons.json`, (err, reasons) => {
             let reason = args.slice(1).join(' ');
             let declineEmbed = new Discord.MessageEmbed()
-                .setTitle(`Bot declined`)
-                .setColor('#4196f7')
+                .setTitle(`Decline | Case #${Case}`)
+                .setColor('#dd2e44')
             if (user.bot) {
                 declineEmbed.addField("Bot", `${user.tag}`, true);
             } else {
