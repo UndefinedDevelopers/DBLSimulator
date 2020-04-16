@@ -9,10 +9,10 @@ module.exports = {
 
 	async code(client, message) {
 		const m = await message.channel.send("Pong...?")
-		m.edit("🏓 Pong!", {embed: {
-			color: 0x47aef0,
-			description: `💗 Websocket: \`${client.ws.ping}ms\`
-		📬 Message: \`${m.createdTimestamp - message.createdTimestamp}ms\``
-		}})
+		const pingEmbed = new Discord.MessageEmbed()
+		.setColor("72da7e")
+		.setDescription(`💗 Websocket: \`${client.ws.ping}ms\`
+		📬 Message: \`${m.createdTimestamp - message.createdTimestamp}ms\``)
+		m.edit("🏓 Pong!", {pingEmbed})
 	}
 }
