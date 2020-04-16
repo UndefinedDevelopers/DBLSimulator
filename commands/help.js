@@ -5,7 +5,6 @@ module.exports = {
     description: "Get information about commands.",
     usage: '[commmand]',
     category: 'self',
-    example: 'dbl-help help',
 
     code(client, message, args) {
         let command = args.slice(0).join(' ');

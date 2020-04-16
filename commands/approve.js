@@ -5,7 +5,6 @@ module.exports = {
 	description: "Approves a bot.",
 	usage: "<mention or tag or id>",
 	category: "luca",
-	example: "approve @Top.gg Simulator#0086",
 
 	async code(client, message, args) {
 		const user = message.mentions.users.first()

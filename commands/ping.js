@@ -5,7 +5,6 @@ module.exports = {
 	description: "Look at bot response times.",
 	usage: "",
 	category: "self",
-	example: "ping",
 
 	async code(client, message) {
 		const m = await message.channel.send("Pong...?")

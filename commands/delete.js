@@ -2,8 +2,8 @@ const Discord = require('discord.js');
 const fse = require('fs-extra');
 
 module.exports = {
-    name: "decline",
-    description: "declines a user.",
+    name: "delete",
+    description: "Deletes a user.",
     usage: '<mention or tag or id> [reason]',
     category: 'dbl',
 
@@ -18,16 +18,16 @@ module.exports = {
         }
         fse.readJson(`reasons.json`, (err, reasons) => {
             let reason = args.slice(1).join(' ');
-            let declineEmbed = new Discord.MessageEmbed()
-            .setTitle(`Decline | Case #${Case}`)
+            let deleteEmbed = new Discord.MessageEmbed()
+            .setTitle(`delete | Case #${Case}`)
             .setColor('#dd2e44')
-            declineEmbed.addField("Bot", `${user.tag}`, true);
+            deleteEmbed.addField("Bot", `${user.tag}`, true);
             if (!reason) {
-                reason = reasons.declineReason[Math.floor(Math.random() * (1 - 0) + 0)];
+                reason = reasons.deleteReason[Math.floor(Math.random() * (1 - 0) + 0)];
             }
-            declineEmbed.addField(`Moderator`, `${message.author.tag}`, true);
-            declineEmbed.addField(`Reason`, reason);
-            message.channel.send(declineEmbed);
+            deleteEmbed.addField(`Moderator`, `${message.author.tag}`, true);
+            deleteEmbed.addField(`Reason`, reason);
+            message.channel.send(deleteEmbed);
         });
     }
 }
