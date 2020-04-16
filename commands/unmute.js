@@ -30,9 +30,9 @@ module.exports = {
             }
             if (!reason) {
                 if (user.bot) {
-                    reason = reasons.botunmuteReason[Math.floor(Math.random() * reasons.unmuteReason.length-1)];
+                    reason = reasons.botunmuteReason[Math.floor(Math.random() * reasons.unmuteReason.length)];
                 } else {
-                    reason = reasons.unmuteReason[Math.floor(Math.random() * reasons.unmuteReason.length-1)];
+                    reason = reasons.unmuteReason[Math.floor(Math.random() * reasons.unmuteReason.length)];
                 }
                 if (reason === 'Time\'s up') {
                     reason = reason+` #${Case-47}`;
