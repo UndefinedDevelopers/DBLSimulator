@@ -1,10 +1,62 @@
 {
-    "banReason": ["Ads in #general", "Ads in #off-topic", "Using the n-word in #development", "Underage", "Big spam in #off-topic", "Selfbot", "Left the server to circumvent their server mute.", "Shouting extremely loud in vc."],
-    "muteReason": ["Advertising in general", "Shitposting even after moderator warnings in #general", "keeps posting dots", "needs to calm down"],
-    "declineReason": ["The long description on your bot's page is filled out with spam/junk to reach the 300 character minimum requirement. Please rewrite your description to include more useful information about your bot.", "The majority of your commands listed on your bot's page, or help command do not provide a response, or does not seem to function/work.", "Your bot page mentions, or promotes NSFW functions in its descriptions. Please remove any mentioning of NSFW features.", "The primary owner of this bot was banned from the Discord Bot List server. They are prohibited from adding any bots.", "Your bot was offline when we tried to review it. For that reason, we are unable to test it. Please get your bot online and re-apply.", "We don't allow other server listing services bots in our list.", "Your bot has a server list command which is considered a privacy breach as it lists all the servers your bot is in. Please either limit this to the bot owner (you), or make it opt-in, or simply delete it."],
-    "unmuteReason": ["Time's up", "Miscommunication"],
-    "botunmuteReason": ["Issue fixed", "Issue fixed according to dev", "fixed by developer", "Disable level messages", "Issue resolved"],
-    "botkickReason": ["DMs on any 3 letter prefix", "Was added by accident", "DM's on join", "anti-spam messages in DMs", "mass DM", "Bot owner requested kick", "Randomly joins voice channels without any user input"],
-    "deleteReason": ["Your bot has an open eval command which anyone can use", "Owner banned", "Bot deleted off of Discord.", "Owner requested deletion", "Only the bot owner is able to add the bot, as the bot has been shutdown according to their site.", "Mass DM most likely token leak", "This bot has been submitted without the actual owner's consent."],
-    "botmuteReason": ["Responding to commands multiple times which causes spam", "Spamming in #testing-1", "responds to any message", "Level up messages", "Has no prefix, responds to just it's commands", "Random messages", "Responds to other bots"]
+    "banReason": [
+    	"Ads in #general",
+    	"Ads in #off-topic",
+    	"Using the n-word in #development",
+    	"Underage",
+    	"Big spam in #off-topic",
+    	"Selfbot",
+    	"Left the server to circumvent their server mute.",
+    	"Shouting extremely loud in vc.",
+    	"Raid"
+    ],
+    "muteReason": [
+    	"Advertising in general",
+    	"Shitposting even after moderator warnings in #general",
+    	"keeps posting dots",
+    	"needs to calm down"
+    ],
+    "declineReason": [
+    	"The long description on your bot's page is filled out with spam/junk to reach the 300 character minimum requirement. Please rewrite your description to include more useful information about your bot.",
+    	"The majority of your commands listed on your bot's page, or help command do not provide a response, or does not seem to function/work.",
+    	"Your bot page mentions, or promotes NSFW functions in its descriptions. Please remove any mentioning of NSFW features.",
+    	"The primary owner of this bot was banned from the Discord Bot List server. They are prohibited from adding any bots.",
+    	"Your bot was offline when we tried to review it. For that reason, we are unable to test it. Please get your bot online and re-apply.",
+    	"We don't allow other server listing services bots in our list.",
+    	"Your bot has a server list command which is considered a privacy breach as it lists all the servers your bot is in. Please either limit this to the bot owner (you), or make it opt-in, or simply delete it."
+    ],
+    "unmuteReason": [
+    	"Time's up",
+    	"Miscommunication"
+    ],
+    "botunmuteReason": [
+    	"Issue fixed",
+    	"Issue fixed according to dev",
+    	"fixed by developer",
+    	"Disabled level messages",
+    	"Issue resolved"],
+    "botkickReason": [
+    	"DMs on any 3 letter prefix",
+    	"Was added by accident",
+    	"DM's on join", "anti-spam messages in DMs",
+    	"mass DM", "Bot owner requested kick",
+    	"Randomly joins voice channels without any user input"],
+    "deleteReason": [
+    	"Your bot has an open eval command which anyone can use",
+    	"Owner banned",
+  		"Bot deleted off of Discord.",
+    	"Owner requested deletion",
+    	"Only the bot owner is able to add the bot, as the bot has been shutdown according to their site.",
+    	"Mass DM most likely token leak",
+    	"This bot has been submitted without the actual owner's consent."
+    ],
+    "botmuteReason": [
+    	"Responding to commands multiple times which causes spam",
+    	"Spamming in #testing-1",
+    	"responds to any message",
+    	"Level up messages",
+    	"Has no prefix, responds to just it's commands",
+    	"Random messages",
+    	"Responds to other bots"
+    ]
 }

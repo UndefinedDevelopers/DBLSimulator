@@ -3,7 +3,7 @@ const fse = require('fs-extra');
 
 module.exports = {
     name: "ban",
-    description: "bans a user.",
+    description: "Bans a user.",
     usage: '<mention or tag or id> [reason]',
     category: 'dbl',
     example: 'dbl-ban Aprixia',
@@ -21,7 +21,7 @@ module.exports = {
             let Case = Math.floor(Math.random() * (50000 - 20000) + 20000);
             let reason = args.slice(1).join(' ');
             let banEmbed = new Discord.MessageEmbed()
-                .setTitle(`ban | Case #${Case}`)
+                .setTitle(`Ban | Case #${Case}`)
                 .setColor('#dd2e44')
             if (user.bot) {
                 banEmbed.addField("Bot", `${user.tag}`, true);

@@ -3,7 +3,7 @@ const fse = require('fs-extra');
 
 module.exports = {
     name: "mute",
-    description: "mutes a user.",
+    description: "Mutes a user.",
     usage: '<mention or tag or id> [reason]',
     category: 'dbl',
     example: 'dbl-mute Aprixia',
@@ -21,8 +21,8 @@ module.exports = {
             let Case = Math.floor(Math.random() * (50000 - 20000) + 20000);
             let reason = args.slice(1).join(' ');
             let muteEmbed = new Discord.MessageEmbed()
-                .setTitle(`mute | Case #${Case}`)
-                .setColor('36393f')
+                .setTitle(`Mute | Case #${Case}`)
+                .setColor('fac10c')
             if (user.bot) {
                 muteEmbed.addField("Bot", `${user.tag}`, true);
             } else {
