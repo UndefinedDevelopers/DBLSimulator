@@ -21,7 +21,7 @@ module.exports = {
             let Case = Math.floor(Math.random() * (50000 - 20000) + 20000);
             let reason = args.slice(1).join(' ');
             let banEmbed = new Discord.MessageEmbed()
-                .setTitle(`ban | Case #${Case}`)
+                .setTitle(`Ban | Case #${Case}`)
                 .setColor('#dd2e44')
             if (user.bot) {
                 banEmbed.addField("Bot", `${user.tag}`, true);
