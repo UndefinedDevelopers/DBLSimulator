@@ -6,7 +6,6 @@ module.exports = {
     description: "Bans a user.",
     usage: '<mention or tag or id> [reason]',
     category: 'dbl',
-    example: 'dbl-ban Aprixia',
 
     async code(client, message, args) {
         let user = message.mentions.users.first();
