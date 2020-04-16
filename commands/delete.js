@@ -19,7 +19,7 @@ module.exports = {
         fse.readJson(`reasons.json`, (err, reasons) => {
             let reason = args.slice(1).join(' ');
             let deleteEmbed = new Discord.MessageEmbed()
-            .setTitle(`delete | Case #${Case}`)
+            .setTitle(`Delete`)
             .setColor('#dd2e44')
             deleteEmbed.addField("Bot", `${user.tag}`, true);
             if (!reason) {
