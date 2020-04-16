@@ -38,6 +38,13 @@ module.exports = {
 
             return message.channel.send(helpEmbed).catch(err => console.error(err));
         } else if (command) {
+            if(!client.commands.get(command)) {
+                const errEmbed = new Discord.MessageEmbed()
+                .setColor('#36393f')
+                .setDescription(`<:tickNo:700331270210846780> I may be blind, but I can't find that command.`)
+
+                return message.channel.send(errEmbed).catch(err => err);
+            }
             const cmd = client.commands.get(command)
             const helpEmbed = new Discord.MessageEmbed()
             .setColor("#72da7e")
