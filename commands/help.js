@@ -8,7 +8,6 @@ module.exports = {
     example: 'dbl-help help',
 
     code(client, message, args) {
-        console.log("help command fired")
         let command = args.slice(0).join(' ');
         if (!command) {
             let dbl = client.commands.map(cmd => cmd).filter(cmd => cmd.category === 'dbl');
@@ -39,7 +38,8 @@ module.exports = {
 
             return message.channel.send(helpEmbed).catch(err => console.error(err));
         } else if (command) {
-
+            const helpEmbed = new Discord.MessageEmbed()
+            
         }
     }
 }
