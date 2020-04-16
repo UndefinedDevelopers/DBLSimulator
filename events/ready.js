@@ -1,6 +1,14 @@
+let Discord = require('discord.js')
+
 module.exports = async (client) => {
 	const bootchannel = client.channels.cache.find(c => c.id === "700328938609574049")
-	let fetched = await bootchannel.messages.fetch({limit:100})
-	bootchannel.send(fetched.size)
- 	bootchannel.send("Looks like I am back online!")
+	await bootchannel.messages.fetch({ limit: 100 }).then(messages => { 
+		bootchannel.bulkDelete(messages)
+	}); 
+	let rebootEmbed = new Discord.MessageEmbed()
+	.setTitle("I have rebooted!")
+	.setColor("GREEN")
+	.setTimestamp();
+	await bootchannel.send("@everyone")
+	await bootchannel.send(rebootEmbed)
 }

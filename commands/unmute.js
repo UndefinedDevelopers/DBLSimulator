@@ -20,23 +20,25 @@ module.exports = {
         fse.readJson(`../reasons.json`, (err, reasons) => {
             let Case = Math.floor(Math.random() * (50000 - 20000) + 20000);
             let reason = args.slice(1).join(' ');
-            if (!reason) {
-                reason = reasons.unmuteReason[Math.floor(Math.random() * reasons.unmuteReason.length-1)];
-                if (reason === 'Unmute Expired') {
-                    reason = reason+` #${Case-47}`;
-                }
-            }
             let unmuteEmbed = new Discord.MessageEmbed()
                 .setTitle(`Unmute | Case #${Case}`)
                 .setColor('08de06')
-                .addField("Reason", `${reason}`)
-                .setTimestamp()
             if (user.bot) {
-                unmuteEmbed.addField("Bot", `${user.tag}`)
+                unmuteEmbed.addField("Bot", `${user.tag}`);
             } else {
-                unmuteEmbed.addField("User", `${user.tag}`)
+                unmuteEmbed.addField("User", `${user.tag}`);
             }
-            message.channel.send(unmuteEmbed)
+            if (!reason) {
+                reason = reasons.unmuteReason[Math.floor(Math.random() * reasons.unmuteReason.length-1)];
+                if (reason === 'Time\'s up') {
+                    reason = reason+` #${Case-47}`;
+                    unmuteEmbed.addField(`Moderator`, `Topgg Discord Simulator#0086`, true);
+                } else {
+                    unmuteEmbed.addField(`Moderator`, `${message.author.tag}`, true);
+                }
+            }
+            unmuteEmbed.addField(`Reason`, reason);
+            message.channel.send(unmuteEmbed);
         });
     }
 }
