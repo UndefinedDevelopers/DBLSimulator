@@ -12,7 +12,7 @@ module.exports = {
 		m.edit("🏓 Pong!", {embed: {
 			color: 0x47aef0,
 			description: `💗 Websocket: \`${client.ws.ping}ms\`
-		📬 Message: \`${m.createdTimestamp - msg.createdTimestamp}ms\``
+		📬 Message: \`${m.createdTimestamp - message.createdTimestamp}ms\``
 		}})
 	}
 }
