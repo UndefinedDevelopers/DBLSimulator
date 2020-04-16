@@ -3,7 +3,7 @@ const fse = require('fs-extra');
 
 module.exports = {
     name: "mute",
-    description: "mutes a user.",
+    description: "Mutes a user.",
     usage: '<mention or tag or id> [reason]',
     category: 'dbl',
     example: 'dbl-mute Aprixia',

@@ -3,7 +3,7 @@ const fse = require('fs-extra');
 
 module.exports = {
     name: "ban",
-    description: "bans a user.",
+    description: "Bans a user.",
     usage: '<mention or tag or id> [reason]',
     category: 'dbl',
     example: 'dbl-ban Aprixia',
