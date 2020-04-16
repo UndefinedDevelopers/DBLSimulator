@@ -3,7 +3,6 @@ module.exports = async (client) => {
 		let fetched;
 	do {
 		fetched = await bootchannel.messages.fetch({limit:100})
-		bootchannel.send(`cool: ${fetched}`)
 		bootchannel.bulkDelete(fetched.size);
 	}
 	while(fetched.size >= 2);
