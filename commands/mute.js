@@ -44,6 +44,28 @@ module.exports = {
                 muteEmbed.addField(`Moderator`, `${message.author.tag}`, true);
             }
             muteEmbed.addField(`Reason`, reason);
+            if (reason) {
+                let timeInt = reason.search(' | ');
+                if (timeInt) {
+                    let time = reason.slice(timeInt);
+                    if (['minute', 'minutes', 'hour', 'hours', 'day', 'days', 'week', 'weeks'].some(Time => time.toLowerCase().indexOf(Time) >= 2)) {
+                        let timeNow = Date.now();
+                        if (['minute', 'minutes'].some(Time => time.toLowerCase().indexOf(Time) >= 2)) {
+                            let timeUn = Date.now()+Time.slice(0, Time.search(' '))*60000;
+                            muteEmbed.setFooter(new Date(timeUn));
+                        } else if (['hour', 'hours'].some(Time => time.toLowerCase().indexOf(Time) >= 2)) {
+                            let timeUn = Date.now()+Time.slice(0, Time.search(' '))*3600000;
+                            muteEmbed.setFooter(new Date(timeUn));
+                        } else if (['day', 'days'].some(Time => time.toLowerCase().indexOf(Time) >= 2)) {
+                            let timeUn = Date.now()+Time.slice(0, Time.search(' '))*86400000;
+                            muteEmbed.setFooter(new Date(timeUn));
+                        } else if (['week', 'weeks'].some(Time => time.toLowerCase().indexOf(Time) >= 2)) {
+                            let timeUn = Date.now()+Time.slice(0, Time.search(' '))*86400000*7;
+                            muteEmbed.setFooter(new Date(timeUn));
+                        }
+                    }
+                }
+            }
             message.channel.send(muteEmbed);
         });
     }
