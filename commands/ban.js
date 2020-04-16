@@ -13,7 +13,7 @@ module.exports = {
         if (!user) {
             const errEmbed = new Discord.MessageEmbed()
             .setColor('36393f')
-            .setDescription(`<:tickNo:700331270210846780> I may be blind, but I don't see that user here.`)
+            .setDescription(`<:tickNo:700331270210846780> Uhm... Could you try again? I didn't get who I need to ban.`)
 
             return message.channel.send(errEmbed).catch(err => err);
         }
