@@ -45,16 +45,16 @@ module.exports = {
                         let timeNow = Date.now();
                         console.log('a')
                         if (['minute', 'minutes'].some(Time => time.toLowerCase().indexOf(Time) >= 2)) {
-                            let timeUn = Date.now()+Time.slice(0, Time.search(' '))*60000;
+                            let timeUn = Date.now()+time.slice(0, time.search(' '))*60000;
                             muteEmbed.setFooter(new Date(timeUn));
                         } else if (['hour', 'hours'].some(Time => time.toLowerCase().indexOf(Time) >= 2)) {
-                            let timeUn = Date.now()+Time.slice(0, Time.search(' '))*3600000;
+                            let timeUn = Date.now()+time.slice(0, time.search(' '))*3600000;
                             muteEmbed.setFooter(new Date(timeUn));
                         } else if (['day', 'days'].some(Time => time.toLowerCase().indexOf(Time) >= 2)) {
-                            let timeUn = Date.now()+Time.slice(0, Time.search(' '))*86400000;
+                            let timeUn = Date.now()+time.slice(0, time.search(' '))*86400000;
                             muteEmbed.setFooter(new Date(timeUn));
                         } else if (['week', 'weeks'].some(Time => time.toLowerCase().indexOf(Time) >= 2)) {
-                            let timeUn = Date.now()+Time.slice(0, Time.search(' '))*86400000*7;
+                            let timeUn = Date.now()+time.slice(0, time.search(' '))*86400000*7;
                             muteEmbed.setFooter(new Date(timeUn));
                         }
                     }
