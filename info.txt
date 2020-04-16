@@ -1,0 +1,6 @@
+Self category, embed hex code - #72da7e
+Mute - #fac10c
+Unmute - #08de06
+Decline - #4196f7
+Ban - #dd2e44
+Unban - #08de06
