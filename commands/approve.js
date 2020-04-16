@@ -24,6 +24,6 @@ module.exports = {
             return message.channel.send(errEmbed).catch(err => err)			
 		}
 
-		message.channel.createMessage(`<@${user.user.id}> was approved by <@${message.author.id}>`)
+		return message.channel.createMessage(`<@${user.id}> was approved by <@${message.author.id}>`)
 	}
 }
