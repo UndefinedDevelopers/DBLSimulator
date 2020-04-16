@@ -4,3 +4,7 @@ Unmute - #08de06
 Decline - #4196f7
 Ban - #dd2e44
 Unban - #08de06
+Error - #36393f
+
+tickNo Emoji: <:tickNo:700331270210846780> 
+tickYes Emoji: <:tickYes:700331431628374077>
