@@ -43,17 +43,18 @@ module.exports = {
                     let time = reason.slice(timeInt+2);
                     if (['minute', 'minutes', 'hour', 'hours', 'day', 'days', 'week', 'weeks'].some(Time => time.toLowerCase().indexOf(Time) >= 2)) {
                         let timeNow = Date.now();
-                        if (['minute', 'minutes'].some(time => time.toLowerCase().indexOf(time) >= 2)) {
-                            let timeUn = Date.now()+time.slice(0, time.search(' '))*60000;
+                        console.log('a')
+                        if (['minute', 'minutes'].some(Time => time.toLowerCase().indexOf(Time) >= 2)) {
+                            let timeUn = Date.now()+Time.slice(0, Time.search(' '))*60000;
                             muteEmbed.setFooter(new Date(timeUn));
-                        } else if (['hour', 'hours'].some(time => time.toLowerCase().indexOf(time) >= 2)) {
-                            let timeUn = Date.now()+time.slice(0, time.search(' '))*3600000;
+                        } else if (['hour', 'hours'].some(Time => time.toLowerCase().indexOf(Time) >= 2)) {
+                            let timeUn = Date.now()+Time.slice(0, Time.search(' '))*3600000;
                             muteEmbed.setFooter(new Date(timeUn));
-                        } else if (['day', 'days'].some(time => time.toLowerCase().indexOf(time) >= 2)) {
-                            let timeUn = Date.now()+time.slice(0, time.search(' '))*86400000;
+                        } else if (['day', 'days'].some(Time => time.toLowerCase().indexOf(Time) >= 2)) {
+                            let timeUn = Date.now()+Time.slice(0, Time.search(' '))*86400000;
                             muteEmbed.setFooter(new Date(timeUn));
-                        } else if (['week', 'weeks'].some(time => time.toLowerCase().indexOf(time) >= 2)) {
-                            let timeUn = Date.now()+time.slice(0, time.search(' '))*86400000*7;
+                        } else if (['week', 'weeks'].some(Time => time.toLowerCase().indexOf(Time) >= 2)) {
+                            let timeUn = Date.now()+Time.slice(0, Time.search(' '))*86400000*7;
                             muteEmbed.setFooter(new Date(timeUn));
                         }
                     }
