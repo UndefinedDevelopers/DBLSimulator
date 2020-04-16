@@ -53,9 +53,9 @@ try {
             console.log(`Could not load the event ${_event}.`)
         }
     }
-    client.log.events(`Successfully loaded ${loadednum} events.\n`)
+    console.log(`Successfully loaded ${loadednum} events.\n`)
 } catch(err) {
-    client.log.error(err)
+    console.log(err)
 }
 
 client.login(process.env.TOKEN);
