@@ -12,7 +12,7 @@ module.exports = {
         let user = message.mentions.users.first();
         if (!user) {
             const errEmbed = new Discord.MessageEmbed()
-            .setColor('#36393f')
+            .setColor('36393f')
             .setDescription(`<:tickNo:700331270210846780> I may be blind, but I don't see that user here.`)
 
             return message.channel.send(errEmbed).catch(err => err);
@@ -22,7 +22,7 @@ module.exports = {
             let reason = args.slice(1).join(' ');
             let muteEmbed = new Discord.MessageEmbed()
                 .setTitle(`mute | Case #${Case}`)
-                .setColor('08de06')
+                .setColor('36393f')
             if (user.bot) {
                 muteEmbed.addField("Bot", `${user.tag}`, true);
             } else {
