@@ -31,8 +31,31 @@ client.on('message', message => {
 });
 // End of Command Handler
 
-client.on('ready', ready => {
-    console.log(`Running! ${client.guilds.cache.size}`);
-});
+try {
+    let files = fs.readdirSync("./events/")
+    files = files.filter(f => f.split(".").pop() === "js")
+    if(files.length === 0) {
+        console.log("There are no events to load.\n\n")
+        return;
+    }
+
+    let loadednum = 0
+    for(let i = 0; i < files.length; i++) {
+        const _event = files[i].slice(0, -3)
+        try {
+            const event = require(`./events/${files[i]}`)
+            client.on(files[i].slice(0, -3), event.bind(null, client))
+            console.log(`Successfully loaded event ${_event}.`)
+            loadednum++
+        } catch(err) {
+            const trace = err.stack.toString().split("\n").slice(0, 3).join("\n")
+            console.log(`An error occured while trying to load ${_event}\n${trace}`)
+            console.log(`Could not load the event ${_event}.`)
+        }
+    }
+    client.log.events(`Successfully loaded ${loadednum} events.\n`)
+} catch(err) {
+    client.log.error(err)
+}
 
 client.login(process.env.TOKEN);

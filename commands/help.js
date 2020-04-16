@@ -39,7 +39,7 @@ module.exports = {
             return message.channel.send(helpEmbed).catch(err => console.error(err));
         } else if (command) {
             const helpEmbed = new Discord.MessageEmbed()
-            
+
         }
     }
 }
