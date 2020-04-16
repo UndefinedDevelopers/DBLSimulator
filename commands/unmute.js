@@ -17,7 +17,7 @@ module.exports = {
             let Case = Math.floor(Math.random() * (50000 - 20000) + 20000);
             let reason = args.slice(0).join(' ');
             if (!reason) {
-                reason = reasons.unmuteReason[Math.floor(Math.random() * reasons.unmuteReason.length)];
+                reason = reasons.unmuteReason[Math.floor(Math.random() * reasons.unmuteReason.length-1)];
                 if (reason === 'Unmute Expired') {
                     reason = reason+` #${Case-47}`;
                 }
