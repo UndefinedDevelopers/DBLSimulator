@@ -40,7 +40,7 @@ module.exports = {
             if (reason) {
                 let timeInt = reason.search(' | ');
                 if (timeInt) {
-                    let time = reason.slice(timeInt+2);
+                    let time = reason.slice(timeInt+3);
                     if (['minute', 'minutes', 'hour', 'hours', 'day', 'days', 'week', 'weeks'].some(Time => time.toLowerCase().indexOf(Time) >= 2)) {
                         let timeNow = Date.now();
                         console.log('a')
