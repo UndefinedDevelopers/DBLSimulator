@@ -13,6 +13,6 @@ module.exports = {
 		.setColor("72da7e")
 		.setDescription(`💗 Websocket: \`${client.ws.ping}ms\`
 		📬 Message: \`${m.createdTimestamp - message.createdTimestamp}ms\``)
-		m.edit("🏓 Pong!", {pingEmbed})
+		m.edit("🏓 Pong!", pingEmbed)
 	}
 }
