@@ -47,7 +47,8 @@ module.exports = {
             if (reason) {
                 let timeInt = reason.search(' | ');
                 if (timeInt) {
-                    let time = reason.slice(timeInt);
+                    let time = reason.slice(timeInt+2);
+                    console.log(time);
                     if (['minute', 'minutes', 'hour', 'hours', 'day', 'days', 'week', 'weeks'].some(Time => time.toLowerCase().indexOf(Time) >= 2)) {
                         let timeNow = Date.now();
                         if (['minute', 'minutes'].some(Time => time.toLowerCase().indexOf(Time) >= 2)) {
