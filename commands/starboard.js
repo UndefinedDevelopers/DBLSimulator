@@ -37,30 +37,30 @@ module.exports = {
         let content = args.slice(3).join(' ');
         const starsBetween = async function(Stars,min,max) {
             if (max === -1) {
-                return Stars>=min;
+                return Stars >= min;
             } else {
-                return Stars>=min && Stars<max;
+                return Stars >= min && Stars < max;
             }
         }
-
+        message.reply(starsBetween(stars, 1, 8))
         const starEmbed = new Discord.MessageEmbed()
         .setAuthor(user.tag, user.avatarURL)
         .setDescription(content)
         .setFooter(`ID: ${message.id}`)
         .setTimestamp()
-        if (starsBetween(stars,1,8)) {
+        if (starsBetween(stars, 1, 8)) {
             message.reply('a')
             starEmbed.setColor('#ffe7a3')
             return message.channel.send(`⭐ ${stars} | ${channel}`).then(message.chanel.send(starEmbed).catch(err => err)).catch(err => err);
-        } else if (starsBetween(stars,8,13)) {
+        } else if (starsBetween(stars, 8, 13)) {
             message.reply('b')
             starEmbed.setColor('#ffd24f')
             return message.channel.send(`🌟 ${stars} | ${channel}`).then(message.chanel.send(starEmbed).catch(err => err)).catch(err => err);
-        } else if (starsBetween(stars,13,28)) {
+        } else if (starsBetween(stars, 13, 28)) {
             message.reply('c')
             starEmbed.setColor('#ffc20c')
             return message.channel.send(`💫 ${stars} | ${channel}`).then(message.chanel.send(starEmbed).catch(err => err)).catch(err => err);
-        } else if (starsBetween(stars,28,-1)) {
+        } else if (starsBetween(stars, 28, -1)) {
             message.reply('d')
             starEmbed.setColor('#ffc20c')
             return message.channel.send(`✨ ${stars} | ${channel}`).then(message.chanel.send(starEmbed).catch(err => err)).catch(err => err);
