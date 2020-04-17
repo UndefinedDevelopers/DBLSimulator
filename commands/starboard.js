@@ -45,15 +45,19 @@ module.exports = {
         .setFooter(`ID: ${message.id}`)
         .setTimestamp()
         if (starsBetween(1,8)) {
+            message.reply('a')
             starEmbed.setColor('#ffe7a3')
             return message.channel.send(`⭐ ${stars} | ${channel}`).then(message.chanel.send(starEmbed).catch(err => err)).catch(err => err);
         } else if (starsBetween(8,13)) {
+            message.reply('b')
             starEmbed.setColor('#ffd24f')
             return message.channel.send(`🌟 ${stars} | ${channel}`).then(message.chanel.send(starEmbed).catch(err => err)).catch(err => err);
         } else if (starsBetween(13,28)) {
+            message.reply('c')
             starEmbed.setColor('#ffc20c')
             return message.channel.send(`💫 ${stars} | ${channel}`).then(message.chanel.send(starEmbed).catch(err => err)).catch(err => err);
         } else if (stars >= 28) {
+            message.reply('d')
             starEmbed.setColor('#ffc20c')
             return message.channel.send(`✨ ${stars} | ${channel}`).then(message.chanel.send(starEmbed).catch(err => err)).catch(err => err);
         }
