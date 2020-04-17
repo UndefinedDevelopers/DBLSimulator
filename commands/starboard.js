@@ -58,7 +58,7 @@ module.exports = {
             return message.channel.send(`💫 ${stars} | ${channel}`).then(message.chanel.send(starEmbed).catch(err => err)).catch(err => err);
         } else if (starsBetween(stars, 28, -1)) {
             starEmbed.setColor('#ffc20c')
-            return message.channel.send(`✨ ${stars} | ${channel}`).then(message.chanel.send(starEmbed).catch(err => message.reply(err))).catch(err => err);
+            return message.channel.send(`✨ ${stars} | ${channel}`).then(() => message.chanel.send(starEmbed).catch(err => message.reply(err))).catch(err => err);
         }
 
     }
