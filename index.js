@@ -2,6 +2,16 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const fs = require('fs');
 require('dotenv').config();
+const DBL = require('dblapi.js');
+const dbl = new DBL(process.env.TOPGGTOKEN, client);
+
+dbl.on('posted', () => {
+    console.log(`Server count posted! | ${client.guilds.cache.size} servers`);
+});
+
+dbl.on('error', err => {
+    console.log(`Error! ${err}`);
+})
 
 // Command Handler
 client.commands = new Discord.Collection();
@@ -22,7 +32,7 @@ client.on('message', message => {
     const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
     if (!command) return;
-
+    
     try {
         return command.code(client, message, args);
     } catch (error) {
@@ -57,5 +67,11 @@ try {
 } catch(err) {
     console.log(err)
 }
+
+client.on('ready', () => {
+    setInterval(() => {
+        dbl.postStats(client.guilds.cache.size).then(console.log(`Successfully posted stats! | ${client.guilds.cache.size} servers`)).catch(err => console.error(err));
+    }, 1800000);
+});
 
 client.login(process.env.TOKEN);
