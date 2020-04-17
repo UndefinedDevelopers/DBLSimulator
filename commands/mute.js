@@ -41,7 +41,6 @@ module.exports = {
                 if (timeInt) {
                     let time = reason.slice(timeInt+3);
                     if (['minute', 'minutes', 'hour', 'hours', 'day', 'days', 'week', 'weeks'].some(Time => time.toLowerCase().indexOf(Time) >= 2)) {
-                        let timeNow = Date.now();
                         if (['minute', 'minutes'].some(Time => time.toLowerCase().indexOf(Time) >= 2)) {
                             let timeUn = Date.now()+time.slice(0, time.search(' '))*60000;
                             muteEmbed.setFooter(`Unmute at: `+new Date(timeUn).toUTCString()); 

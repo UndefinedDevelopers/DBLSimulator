@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+// ! Discord is defined, but never used, Do we need this here?
 
 module.exports = {
     name: "moderators",

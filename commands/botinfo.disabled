@@ -1,3 +1,4 @@
+/* eslint-disable no-unreachable */
 const Discord = require('discord.js');
 const DBL = require('dblapi.js');
 
@@ -12,24 +13,24 @@ module.exports = {
         let bot = client.users.cache.get(args.slice(0).some(id => user.id === id)) || message.mentions.users.first();
         if (!bot) {
             const errEmbed = new Discord.MessageEmbed()
-            .setColor('#36393f')
-            .setDescription(`<:tickNo:700331270210846780> I may be blind, but I don't see that bot on top.gg.`)
+                .setColor('#36393f')
+                .setDescription(`<:tickNo:700331270210846780> I may be blind, but I don't see that bot on top.gg.`)
             return message.channel.send(errEmbed).catch(err => err);
         }
         if (!bot.bot) {
             const errEmbed = new Discord.MessageEmbed()
-            .setColor('#36393f')
-            .setDescription(`<:tickNo:700331270210846780> I may be dumb, but I don't think that is a bot.`)
+                .setColor('#36393f')
+                .setDescription(`<:tickNo:700331270210846780> I may be dumb, but I don't think that is a bot.`)
             return message.channel.send(errEmbed).catch(err => err);
         }
-        
-        
+
+
         const dbl = new DBL(process.env.TOPGGTOKEN, client);
         dbl.getBot(bot.id).then(Bot => {
             if (!Bot) {
                 const errEmbed = new Discord.MessageEmbed()
-                .setColor('#36393f')
-                .setDescription(`<:tickNo:700331270210846780> I may be blind, but I don't see that bot on top.gg.`)
+                    .setColor('#36393f')
+                    .setDescription(`<:tickNo:700331270210846780> I may be blind, but I don't see that bot on top.gg.`)
                 return message.channel.send(errEmbed).catch(err => err);
             }
 
@@ -41,20 +42,20 @@ module.exports = {
             if (botLinks.length === 0) botLinks.push(`None...`);
 
             const botInfoEmbed = new Discord.MessageEmbed()
-            .setAuthor(Bot.username, `https://images.discordapp.net/avatars/${Bot.id}/${Bot.avatar}?size=512`)
-            .setTitle(`Bot info`)
-            .setThumbnail(`https://images.discordapp.net/avatars/${Bot.id}/${Bot.avatar}?size=512`)
-            .addField(`ID`, Bot.id, true)
-            .addField(`Username`, Bot.username, true)
-            .addField(`Discriminator`, Bot.discriminator, true)
-            .addField(`Short Description`, Bot.shortdesc, true)
-            .addField(`Library`, Bot.lib, true)
-            .addField(`Prefix`, Bot.prefix, true)
-            .addField(`Total Upvotes`, Bot.points, true)
-            .addField(`Monthly Upvotes`, Bot.monthlyPoints, true)
-            .addField(`Server Count`, `${Bot.server_count} Servers`, true)
-            .addField(`Owner(s)`, Bot.owners, true)
-            .addField(`Links`, botLinks, true)
+                .setAuthor(Bot.username, `https://images.discordapp.net/avatars/${Bot.id}/${Bot.avatar}?size=512`)
+                .setTitle(`Bot info`)
+                .setThumbnail(`https://images.discordapp.net/avatars/${Bot.id}/${Bot.avatar}?size=512`)
+                .addField(`ID`, Bot.id, true)
+                .addField(`Username`, Bot.username, true)
+                .addField(`Discriminator`, Bot.discriminator, true)
+                .addField(`Short Description`, Bot.shortdesc, true)
+                .addField(`Library`, Bot.lib, true)
+                .addField(`Prefix`, Bot.prefix, true)
+                .addField(`Total Upvotes`, Bot.points, true)
+                .addField(`Monthly Upvotes`, Bot.monthlyPoints, true)
+                .addField(`Server Count`, `${Bot.server_count} Servers`, true)
+                .addField(`Owner(s)`, Bot.owners, true)
+                .addField(`Links`, botLinks, true)
 
             return message.channel.send(botInfoEmbed).catch(err => err);
         });

@@ -11,16 +11,17 @@ module.exports = {
         let user = message.mentions.users.first();
         if (!user) {
             const errEmbed = new Discord.MessageEmbed()
-            .setColor('36393f')
-            .setDescription(`<:tickNo:700331270210846780> I may be blind, but I don't see that user here.`)
+                .setColor('36393f')
+                .setDescription(`<:tickNo:700331270210846780> I may be blind, but I don't see that user here.`)
 
             return message.channel.send(errEmbed).catch(err => err);
         }
         fse.readJson(`reasons.json`, (err, reasons) => {
             let reason = args.slice(1).join(' ');
+            // ! Case is not defined, someone please fix.
             let declineEmbed = new Discord.MessageEmbed()
-            .setTitle(`Decline | Case #${Case}`)
-            .setColor('#dd2e44')
+                .setTitle(`Decline | Case #${Case}`)
+                .setColor('#dd2e44')
             declineEmbed.addField("Bot", `${user.tag}`, true);
             if (!reason) {
                 reason = reasons.declineReason[Math.floor(Math.random() * (1 - 0) + 0)];

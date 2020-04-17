@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const Discord = require('discord.js');
 const fse = require('fs-extra');
 const fetch = require('node-fetch');
