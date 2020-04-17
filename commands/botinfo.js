@@ -8,6 +8,7 @@ module.exports = {
     category: 'luca',
 
     async code(client, message, args) {
+        return message.channel.send(`I am sorry, but we do not have access to the API yet. Please try again later, we may have it then.`).catch(err => err);
         let bot = args[0];
         if (!bot) {
             const errEmbed = new Discord.MessageEmbed()
@@ -17,6 +18,12 @@ module.exports = {
         }
         if (isNaN(bot)) {
             bot = message.mentions.users.first();
+            if (!bot) {
+                const errEmbed = new Discord.MessageEmbed()
+                .setColor('#36393f')
+                .setDescription(`<:tickNo:700331270210846780> I may be blind, but I don't see that bot on top.gg.`)
+                return message.channel.send(errEmbed).catch(err => err);
+            }
             if (!bot.bot) {
                 const errEmbed = new Discord.MessageEmbed()
                 .setColor('#36393f')

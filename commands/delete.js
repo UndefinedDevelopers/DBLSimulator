@@ -27,6 +27,7 @@ module.exports = {
             }
             deleteEmbed.addField(`Moderator`, `${message.author.tag}`, true);
             deleteEmbed.addField(`Reason`, reason);
+            deleteEmbed.setTimestamp();
             message.channel.send(deleteEmbed);
         });
     }

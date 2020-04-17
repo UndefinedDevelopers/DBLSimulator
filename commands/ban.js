@@ -32,6 +32,7 @@ module.exports = {
             }
             banEmbed.addField(`Moderator`, `${message.author.tag}`, true);
             banEmbed.addField(`Reason`, reason);
+            banEmbed.setTimestamp();
             message.channel.send(banEmbed);
         });
     }
