@@ -14,7 +14,7 @@ module.exports = {
             .setDescription(`<:tickNo:700331270210846780> I may be blind, but I don't see that user here.`)
             return message.channel.send(errEmbed).catch(err => err);
         }
-        let stars = args[1];
+        let stars = parseInt(args[1]);
         if (!stars) {
             const errEmbed = new Discord.MessageEmbed()
             .setColor('#36393f')
@@ -36,7 +36,6 @@ module.exports = {
         }
         let content = args.slice(3).join(' ');
         const starsBetween = async function(Stars,min,max) {
-            Number(Stars);
             if (max === -1) {
                 return Stars>=min;
             } else {
