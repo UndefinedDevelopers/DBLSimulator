@@ -49,16 +49,16 @@ module.exports = {
         .setTimestamp()
         if (starsBetween(stars, 1, 8)) {
             starEmbed.setColor('#ffe7a3')
-            return message.channel.send(`⭐ ${stars} | ${channel}`).then(message.chanel.send(starEmbed).catch(err => err)).catch(err => err);
+            return message.channel.send(`⭐ ${stars} | ${channel}`).then(message.channel.send(starEmbed).catch(err => err)).catch(err => err);
         } else if (starsBetween(stars, 8, 13)) {
             starEmbed.setColor('#ffd24f')
-            return message.channel.send(`🌟 ${stars} | ${channel}`).then(message.chanel.send(starEmbed).catch(err => err)).catch(err => err);
+            return message.channel.send(`🌟 ${stars} | ${channel}`).then(message.channel.send(starEmbed).catch(err => err)).catch(err => err);
         } else if (starsBetween(stars, 13, 28)) {
             starEmbed.setColor('#ffc20c')
-            return message.channel.send(`💫 ${stars} | ${channel}`).then(message.chanel.send(starEmbed).catch(err => err)).catch(err => err);
+            return message.channel.send(`💫 ${stars} | ${channel}`).then(message.channel.send(starEmbed).catch(err => err)).catch(err => err);
         } else if (starsBetween(stars, 28, -1)) {
             starEmbed.setColor('#ffc20c')
-            return message.channel.send(`✨ ${stars} | ${channel}`).then(() => message.chanel.send(starEmbed).catch(err => message.reply(err))).catch(err => err);
+            return message.channel.send(`✨ ${stars} | ${channel}`).then(message.channel.send(starEmbed).catch(err => err)).catch(err => err);
         }
 
     }
