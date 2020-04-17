@@ -22,6 +22,6 @@ module.exports = {
 
         let x = Math.floor(Math.random() * (11 - 0) + 0);
 
-        return message.channel.send(`@Moderators ${ats[0]}`).catch(err => err);
+        return message.channel.send(`@Moderators ${ats[x]}`).catch(err => err);
     }
 }
