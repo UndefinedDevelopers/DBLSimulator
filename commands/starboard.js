@@ -48,7 +48,7 @@ module.exports = {
         starEmbed.setDescription(content)
         }
         if (message.attachments) {
-            starEmbed.setImage(message.attachments.first());
+            starEmbed.image(message.attachments.first());
         }
         starEmbed.setFooter(`ID: ${message.id}`)
         starEmbed.setTimestamp()
