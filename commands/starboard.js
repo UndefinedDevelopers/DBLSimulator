@@ -35,7 +35,7 @@ module.exports = {
             return message.channel.send(errEmbed).catch(err => err);
         }
         let content = args.slice(3).join(' ');
-        const starsBetween = async function(Stars,min,max) {
+        const starsBetween = function(Stars,min,max) {
             if (max === -1) {
                 return Stars >= min;
             } else {
