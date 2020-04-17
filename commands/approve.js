@@ -4,7 +4,7 @@ module.exports = {
 	name: "approve",
 	description: "Approves a bot.",
 	usage: "<mention or tag or id>",
-	category: "luca",
+	category: "dbl",
 
 	async code(client, message, args) {
 		const user = message.mentions.users.first()

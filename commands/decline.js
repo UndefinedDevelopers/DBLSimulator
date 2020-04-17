@@ -3,7 +3,7 @@ const fse = require('fs-extra');
 
 module.exports = {
     name: "decline",
-    description: "declines a user.",
+    description: "Declines a user.",
     usage: '<mention or tag or id> [reason]',
     category: 'dbl',
 
@@ -27,6 +27,7 @@ module.exports = {
             }
             declineEmbed.addField(`Moderator`, `${message.author.tag}`, true);
             declineEmbed.addField(`Reason`, reason);
+            declineEmbed.setTimestamp();
             message.channel.send(declineEmbed);
         });
     }

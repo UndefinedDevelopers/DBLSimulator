@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/CollierDevs/DBLSimulator#readme",
   "dependencies": {
-    "discord.js": "^12.1.1",
+    "dblapi.js": "^2.4.0",
+    "discord.js": "^12.2.0",
     "dotenv": "^8.2.0",
     "fs": "0.0.1-security",
     "fs-extra": "^9.0.0"

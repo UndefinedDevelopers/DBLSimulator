@@ -43,6 +43,7 @@ module.exports = {
                 unmuteEmbed.addField(`Moderator`, `${message.author.tag}`, true);
             }
             unmuteEmbed.addField(`Reason`, reason);
+            unmuteEmbed.setTimestamp();
             message.channel.send(unmuteEmbed);
         });
     }
