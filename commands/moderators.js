@@ -7,7 +7,7 @@ module.exports = {
     usage: '',
     category: 'dbl',
 
-    async code(client, message, args) {
+    async code(client, message) {
         let ats = ["how long is the queue?",
         "how much left of the queue before my bot?",
         " ",

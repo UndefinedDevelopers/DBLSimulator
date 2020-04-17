@@ -6,7 +6,7 @@ module.exports = {
 	usage: "<mention or tag or id>",
 	category: "dbl",
 
-	async code(client, message, args) {
+	async code(client, message) {
 		const user = message.mentions.users.first()
 
 		if(!user) {
