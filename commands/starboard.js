@@ -44,9 +44,14 @@ module.exports = {
         }
         const starEmbed = new Discord.MessageEmbed()
         .setAuthor(user.tag, user.avatarURL())
-        .setDescription(content)
-        .setFooter(`ID: ${message.id}`)
-        .setTimestamp()
+        if (content) {
+        starEmbed.setDescription(content)
+        }
+        if (message.attachments) {
+            starEmbed.setImage(message.attachments.first());
+        }
+        starEmbed.setFooter(`ID: ${message.id}`)
+        starEmbed.setTimestamp()
         if (starsBetween(stars, 1, 8)) {
             starEmbed.setColor('#ffe7a3')
             return message.channel.send(`⭐ ${stars} | ${channel}`).then(message.channel.send(starEmbed).catch(err => err)).catch(err => err);
