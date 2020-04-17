@@ -4,39 +4,28 @@ const DBL = require('dblapi.js');
 module.exports = {
     name: "botinfo",
     description: "Gives informaation about a bot listed on [top.gg](https://top.gg/)",
-    usage: '<bot id or bot mention>',
+    usage: '<bot id or mention>',
     category: 'luca',
 
     async code(client, message, args) {
         return message.channel.send(`I am sorry, but we do not have access to the API yet. Please try again later, we may have it then.`).catch(err => err);
-        let bot = args[0];
+        let bot = client.users.cache.get(args.slice(0).some(id => user.id === id)) || message.mentions.users.first();
         if (!bot) {
             const errEmbed = new Discord.MessageEmbed()
             .setColor('#36393f')
             .setDescription(`<:tickNo:700331270210846780> I may be blind, but I don't see that bot on top.gg.`)
             return message.channel.send(errEmbed).catch(err => err);
         }
-        if (isNaN(bot)) {
-            bot = message.mentions.users.first();
-            if (!bot) {
-                const errEmbed = new Discord.MessageEmbed()
-                .setColor('#36393f')
-                .setDescription(`<:tickNo:700331270210846780> I may be blind, but I don't see that bot on top.gg.`)
-                return message.channel.send(errEmbed).catch(err => err);
-            }
-            if (!bot.bot) {
-                const errEmbed = new Discord.MessageEmbed()
-                .setColor('#36393f')
-                .setDescription(`<:tickNo:700331270210846780> I may be dumb, but I don't think that is a bot.`)
-                return message.channel.send(errEmbed).catch(err => err);
-            } else {
-                bot = bot.id;
-            }
+        if (!bot.bot) {
+            const errEmbed = new Discord.MessageEmbed()
+            .setColor('#36393f')
+            .setDescription(`<:tickNo:700331270210846780> I may be dumb, but I don't think that is a bot.`)
+            return message.channel.send(errEmbed).catch(err => err);
         }
         
         
         const dbl = new DBL(process.env.TOPGGTOKEN, client);
-        dbl.getBot(bot).then(Bot => {
+        dbl.getBot(bot.id).then(Bot => {
             if (!Bot) {
                 const errEmbed = new Discord.MessageEmbed()
                 .setColor('#36393f')
