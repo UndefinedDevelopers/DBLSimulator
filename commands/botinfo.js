@@ -34,6 +34,7 @@ module.exports = {
             }
         }
         
+        
         const dbl = new DBL(process.env.TOPGGTOKEN, client);
         dbl.getBot(bot).then(Bot => {
             if (!Bot) {
@@ -51,8 +52,9 @@ module.exports = {
             if (botLinks.length === 0) botLinks.push(`None...`);
 
             const botInfoEmbed = new Discord.MessageEmbed()
-            .setAuthor(Bot.username, Bot.avatar)
+            .setAuthor(Bot.username, `https://images.discordapp.net/avatars/${Bot.id}/${Bot.avatar}?size=512`)
             .setTitle(`Bot info`)
+            .setThumbnail(`https://images.discordapp.net/avatars/${Bot.id}/${Bot.avatar}?size=512`)
             .addField(`ID`, Bot.id, true)
             .addField(`Username`, Bot.username, true)
             .addField(`Discriminator`, Bot.discriminator, true)

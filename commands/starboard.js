@@ -43,7 +43,7 @@ module.exports = {
             }
         }
         const starEmbed = new Discord.MessageEmbed()
-        .setAuthor(user.tag, user.avatarURL)
+        .setAuthor(user.tag, user.avatarURL())
         .setDescription(content)
         .setFooter(`ID: ${message.id}`)
         .setTimestamp()
