@@ -18,8 +18,11 @@ module.exports = {
         }
         fse.readJson(`reasons.json`, (err, reasons) => {
             let reason = args.slice(1).join(' ');
-            // ! Case is not defined, someone please fix.
-            // Fixed. Case isn't supposed to be be in this one.
+
+            /*
+             * ! Case is not defined, someone please fix.
+             * Fixed. Case isn't supposed to be be in this one.
+             */
             let declineEmbed = new Discord.MessageEmbed()
                 .setTitle(`Decline`)
                 .setColor('#dd2e44')
