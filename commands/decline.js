@@ -19,10 +19,11 @@ module.exports = {
         fse.readJson(`reasons.json`, (err, reasons) => {
             let reason = args.slice(1).join(' ');
             // ! Case is not defined, someone please fix.
+            // Fixed. Case isn't supposed to be be in this one.
             let declineEmbed = new Discord.MessageEmbed()
-                .setTitle(`Decline | Case #${Case}`)
+                .setTitle(`Decline`)
                 .setColor('#dd2e44')
-            declineEmbed.addField("Bot", `${user.tag}`, true);
+            declineEmbed.addField("Bot", `${user.tag} (${user})`, true);
             if (!reason) {
                 reason = reasons.declineReason[Math.floor(Math.random() * (1 - 0) + 0)];
             }

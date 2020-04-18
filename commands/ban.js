@@ -23,9 +23,9 @@ module.exports = {
                 .setTitle(`Ban | Case #${Case}`)
                 .setColor('#dd2e44')
             if (user.bot) {
-                banEmbed.addField("Bot", `${user.tag}`, true);
+                banEmbed.addField("Bot", `${user.tag} (${user})`, true);
             } else {
-                banEmbed.addField("User", `${user.tag}`, true);
+                banEmbed.addField("User", `${user.tag} (${user})`, true);
             }
             if (!reason) {
                 reason = reasons.banReason[Math.floor(Math.random() * (1 - 0) + 0)];

@@ -21,7 +21,7 @@ module.exports = {
             let deleteEmbed = new Discord.MessageEmbed()
             .setTitle(`Delete`)
             .setColor('#dd2e44')
-            deleteEmbed.addField("Bot", `${user.tag}`, true);
+            deleteEmbed.addField("Bot", `${user.tag} (${user})`, true);
             if (!reason) {
                 reason = reasons.deleteReason[Math.floor(Math.random() * (1 - 0) + 0)];
             }

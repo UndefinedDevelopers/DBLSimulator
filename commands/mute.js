@@ -23,9 +23,9 @@ module.exports = {
                 .setTitle(`Mute | Case #${Case}`)
                 .setColor('fac10c')
             if (user.bot) {
-                muteEmbed.addField("Bot", `${user.tag}`, true);
+                muteEmbed.addField("Bot", `${user.tag} (${user})`, true);
             } else {
-                muteEmbed.addField("User", `${user.tag}`, true);
+                muteEmbed.addField("User", `${user.tag} (${user})`, true);
             }
             if (!reason) {
                 if (user.bot) {

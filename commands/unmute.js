@@ -23,9 +23,9 @@ module.exports = {
                 .setTitle(`Unmute | Case #${Case}`)
                 .setColor('fac10c')
             if (user.bot) {
-                unmuteEmbed.addField("Bot", `${user.tag}`, true);
+                unmuteEmbed.addField("Bot", `${user.tag} (${user})`, true);
             } else {
-                unmuteEmbed.addField("User", `${user.tag}`, true);
+                unmuteEmbed.addField("User", `${user.tag} (${user})`, true);
             }
             if (!reason) {
                 if (user.bot) {

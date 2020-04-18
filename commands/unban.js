@@ -23,9 +23,9 @@ module.exports = {
             .setTitle(`Unban | Case #${Case}`)
             .setColor('#dd2e44')
             if (user.bot) {
-                unbanEmbed.addField("Bot", `${user.tag}`, true);
+                unbanEmbed.addField("Bot", `${user.tag} (${user})`, true);
             } else {
-                unbanEmbed.addField("User", `${user.tag}`, true);
+                unbanEmbed.addField("User", `${user.tag} (${user})`, true);
             }
             if (!reason) {
                 reason = reasons.unbanReason[Math.floor(Math.random() * (1 - 0) + 0)];

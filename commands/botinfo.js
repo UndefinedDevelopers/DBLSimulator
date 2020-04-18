@@ -1,4 +1,3 @@
-/* eslint-disable no-unreachable */
 const Discord = require('discord.js');
 const DBL = require('dblapi.js');
 
@@ -9,8 +8,9 @@ module.exports = {
     category: 'luca',
 
     async code(client, message, args) {
+        // Don't disable this. It is already disabled by the return below.
         return message.channel.send(`I am sorry, but we do not have access to the API yet. Please try again later, we may have it then.`).catch(err => err);
-        let bot = client.users.cache.get(args.slice(0).some(id => user.id === id)) || message.mentions.users.first();
+        /*let bot = client.users.cache.get(args.slice(0).some(id => user.id === id)) || message.mentions.users.first();
         if (!bot) {
             const errEmbed = new Discord.MessageEmbed()
                 .setColor('#36393f')
@@ -58,7 +58,7 @@ module.exports = {
                 .addField(`Links`, botLinks, true)
 
             return message.channel.send(botInfoEmbed).catch(err => err);
-        });
+        });*/
 
 
     }
