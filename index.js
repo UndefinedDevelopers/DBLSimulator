@@ -16,10 +16,10 @@ dbl.on('error', err => {
 // Command Handler
 client.commands = new Discord.Collection();
 
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+const commandFiles = fs.readdirSync('/commands').filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
-    const command = require(`./commands/${file}`);
+    const command = require(`/commands/${file}`);
     client.commands.set(command.name, command);
 }
 
@@ -42,7 +42,7 @@ client.on('message', message => {
 // End of Command Handler
 
 try {
-    let files = fs.readdirSync("./events/")
+    let files = fs.readdirSync("/events/")
     files = files.filter(f => f.split(".").pop() === "js")
     if(files.length === 0) {
         console.log("There are no events to load.\n\n")
