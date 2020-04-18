@@ -16,11 +16,11 @@ dbl.on('error', err => {
 // Command Handler
 client.commands = new Discord.Collection();
 
-var commandFiles = fs
+let commandFiles = fs
     .readdirSync(`./commands`)
     .filter(file => file.endsWith('.js'));
-  for (var file of commandFiles) {
-    var command = require(`./commands/${file}`);
+  for (let file of commandFiles) {
+    let command = require(`./commands/${file}`);
     client.commands.set(command.name, command);
   }
 
