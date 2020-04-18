@@ -6,7 +6,7 @@ module.exports = {
     usage: '[commmand]',
     category: 'self',
 
-    code(client, message, args) {
+    async code(client, message, args) {
         let command = args.slice(0).join(' ');
         if (!command) {
             let dbl = client.commands.map(cmd => cmd).filter(cmd => cmd.category === 'dbl');
@@ -50,7 +50,8 @@ module.exports = {
             .setTitle("Command details")
             .setDescription(`Here is some info on the command ${command}.`)
             .addField("Details", `Description: ${cmd.description}\nUsage: ${cmd.usage}`)
-            return message.channel.send(helpEmbed).catch(err => console.error(err))
+            // why did you need to return here
+            await message.channel.send(helpEmbed).catch(err => console.error(err))
         }
     }
 }

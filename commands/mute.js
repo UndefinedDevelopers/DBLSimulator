@@ -16,7 +16,7 @@ module.exports = {
 
             return message.channel.send(errEmbed).catch(err => err);
         }
-        fse.readJson(`reasons.json`, (err, reasons) => {
+        fse.readJson(`reasons.json`, async(err, reasons) => {
             let Case = Math.floor(Math.random() * (50000 - 20000) + 20000);
             let reason = args.slice(1).join(' ');
             let muteEmbed = new Discord.MessageEmbed()
@@ -58,7 +58,7 @@ module.exports = {
                 }
             }
             muteEmbed.setTimestamp();
-            message.channel.send(muteEmbed);
+            await message.channel.send(muteEmbed);
         });
     }
 }

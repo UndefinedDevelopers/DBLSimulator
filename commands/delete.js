@@ -16,7 +16,7 @@ module.exports = {
 
             return message.channel.send(errEmbed).catch(err => err);
         }
-        fse.readJson(`reasons.json`, (err, reasons) => {
+        fse.readJson(`reasons.json`, async(err, reasons) => {
             let reason = args.slice(1).join(' ');
             let deleteEmbed = new Discord.MessageEmbed()
             .setTitle(`Delete`)
@@ -28,7 +28,7 @@ module.exports = {
             deleteEmbed.addField(`Moderator`, `${message.author.tag}`, true);
             deleteEmbed.addField(`Reason`, reason);
             deleteEmbed.setTimestamp();
-            message.channel.send(deleteEmbed);
+            await message.channel.send(deleteEmbed);
         });
     }
 }

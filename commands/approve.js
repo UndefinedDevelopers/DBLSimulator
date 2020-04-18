@@ -23,6 +23,6 @@ module.exports = {
             return message.channel.send(errEmbed).catch(err => err)			
 		}
 
-		message.channel.send(`<@${user.id}> was approved by <@${message.author.id}>`)
+		await message.channel.send(`<@${user.id}> was approved by <@${message.author.id}>`)
 	}
 }
