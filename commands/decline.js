@@ -16,7 +16,7 @@ module.exports = {
 
             return message.channel.send(errEmbed).catch(err => err);
         }
-        fse.readJson(`reasons.json`, (err, reasons) => {
+        fse.readJson(`reasons.json`, async(err, reasons) => {
             let reason = args.slice(1).join(' ');
 
             /*
@@ -33,7 +33,7 @@ module.exports = {
             declineEmbed.addField(`Moderator`, `${message.author.tag}`, true);
             declineEmbed.addField(`Reason`, reason);
             declineEmbed.setTimestamp();
-            message.channel.send(declineEmbed);
+            await message.channel.send(declineEmbed);
         });
     }
 }

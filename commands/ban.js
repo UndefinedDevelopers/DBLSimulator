@@ -16,7 +16,7 @@ module.exports = {
 
             return message.channel.send(errEmbed).catch(err => err);
         }
-        fse.readJson(`reasons.json`, (err, reasons) => {
+        fse.readJson(`reasons.json`, async(err, reasons) => {
             let Case = Math.floor(Math.random() * (50000 - 20000) + 20000);
             let reason = args.slice(1).join(' ');
             let banEmbed = new Discord.MessageEmbed()
@@ -33,7 +33,7 @@ module.exports = {
             banEmbed.addField(`Moderator`, `${message.author.tag}`, true);
             banEmbed.addField(`Reason`, reason);
             banEmbed.setTimestamp();
-            message.channel.send(banEmbed);
+            await message.channel.send(banEmbed);
         });
     }
 }
