@@ -16,13 +16,12 @@ dbl.on('error', err => {
 // Command Handler
 client.commands = new Discord.Collection();
 
-let commandFiles = fs
-    .readdirSync(`./commands`)
-    .filter(file => file.endsWith('.js'));
-  for (let file of commandFiles) {
-    let command = require(`./commands/${file}`);
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+
+for (const file of commandFiles) {
+    const command = require(`./commands/${file}`);
     client.commands.set(command.name, command);
-  }
+}
 
 client.on('message', message => {
     if (message.channel.type === 'dm') return;
@@ -43,7 +42,7 @@ client.on('message', message => {
 // End of Command Handler
 
 try {
-    let files = fs.readdirSync("events/")
+    let files = fs.readdirSync("./events/")
     files = files.filter(f => f.split(".").pop() === "js")
     if(files.length === 0) {
         console.log("There are no events to load.\n\n")
@@ -54,7 +53,7 @@ try {
     for(let i = 0; i < files.length; i++) {
         const _event = files[i].slice(0, -3)
         try {
-            const event = require(`events/${files[i]}`)
+            const event = require(`./events/${files[i]}`)
             client.on(files[i].slice(0, -3), event.bind(null, client))
             console.log(`Successfully loaded event ${_event}.`)
             loadednum++
