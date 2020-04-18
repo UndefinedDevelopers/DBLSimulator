@@ -54,16 +54,16 @@ module.exports = {
         starEmbed.setTimestamp()
         if (starsBetween(stars, 1, 8)) {
             starEmbed.setColor('#ffe7a3')
-            return message.channel.send(`⭐ ${stars} | ${channel}`, starEmbed).catch(err => err);
+            return message.channel.send(`⭐ ${stars} | ${channel}`, starEmbed).then(m => m.react(701054002141462528)).catch(err => err);
         } else if (starsBetween(stars, 8, 13)) {
             starEmbed.setColor('#ffd24f')
-            return message.channel.send(`🌟 ${stars} | ${channel}`, starEmbed).catch(err => err);
+            return message.channel.send(`🌟 ${stars} | ${channel}`, starEmbed).then(m => m.react(701054002141462528)).catch(err => err);
         } else if (starsBetween(stars, 13, 28)) {
             starEmbed.setColor('#ffc20c')
-            return message.channel.send(`💫 ${stars} | ${channel}`, starEmbed).catch(err => err);
+            return message.channel.send(`💫 ${stars} | ${channel}`, starEmbed).then(m => m.react(701054002141462528)).catch(err => err);
         } else if (starsBetween(stars, 28, -1)) {
             starEmbed.setColor('#ffc20c')
-            return message.channel.send(`✨ ${stars} | ${channel}`, starEmbed).catch(err => err);
+            return message.channel.send(`✨ ${stars} | ${channel}`, starEmbed).then(m => m.react(701054002141462528)).catch(err => err);
         }
 
     }
