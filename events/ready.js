@@ -9,6 +9,5 @@ module.exports = async (client) => {
 	.setTitle("I have rebooted!")
 	.setColor("GREEN")
 	.setTimestamp();
-	await bootchannel.send("@everyone")
 	await bootchannel.send(rebootEmbed)
 }
