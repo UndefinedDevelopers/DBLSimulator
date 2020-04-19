@@ -14,7 +14,8 @@
 		"Advertising in general",
 		"Shitposting even after moderator warnings in #general",
 		"keeps posting dots",
-		"needs to calm down"
+		"needs to calm down",
+		"Pinging moderators for non-emergency reasons"
 	],
 	"declineReason": [
 		"The long description on your bot's page is filled out with spam/junk to reach the 300 character minimum requirement. Please rewrite your description to include more useful information about your bot.",
