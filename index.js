@@ -23,6 +23,7 @@ for (const file of commandFiles) {
     client.commands.set(command.name, command);
 }
 
+// Testing Commit
 client.on('message', message => {
     if (message.channel.type === 'dm') return;
     let prefix = process.env.PREFIX;
