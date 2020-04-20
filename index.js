@@ -53,7 +53,7 @@ try {
     for(let i = 0; i < files.length; i++) {
         const _event = files[i].slice(0, -3)
         try {
-            const event = require(`events/${files[i]}`)
+            const event = require(`./events/${files[i]}`)
             client.on(files[i].slice(0, -3), event.bind(null, client))
             console.log(`Successfully loaded event ${_event}.`)
             loadednum++
