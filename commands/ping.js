@@ -12,8 +12,7 @@ module.exports = {
 		const pingEmbed = new Discord.MessageEmbed()
 		.setColor("72da7e")
 		.setDescription(`💗 Websocket: \`${client.ws.ping}ms\`
-		📬 Message: \`${aftermsg - beforemsg}ms\``)
+		📬 Message: \`${Date.now() - beforemsg}ms\``)
 		await m.edit("🏓 Pong!", pingEmbed)
-		let aftermsg = Date.now();
 	}
 }
