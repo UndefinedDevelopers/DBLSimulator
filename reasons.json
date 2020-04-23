@@ -63,5 +63,10 @@
 		"Has no prefix, responds to just it's commands",
 		"Random messages",
 		"Responds to other bots"
+	],
+	"unbanReason": [
+		"Miscommunication",
+		"Appealed",
+		"Wrong punishment"
 	]
 }

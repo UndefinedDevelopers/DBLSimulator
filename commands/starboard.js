@@ -3,16 +3,33 @@ const Discord = require('discord.js');
 module.exports = {
     name: "starboard",
     description: "Simulate a starboard post.",
-    usage: '<mention> <stars> <channel> <content>',
+    usage: '<mention or id> <stars> <channel or id> <content>',
     category: 'dbl',
 
     async code(client, message, args) {
-        let user = message.mentions.users.first();
+        let user = client.users.cache.get(args[0]);
         if (!user) {
-            const errEmbed = new Discord.MessageEmbed()
-            .setColor('#36393f')
-            .setDescription(`<:tickNo:700331270210846780> I may be blind, but I don't see that user here.`)
-            return message.channel.send(errEmbed).catch(err => err);
+            function getUser(mention) {
+                if (!mention) return;
+                
+                if (mention.startsWith(`<@`) && mention.endsWith(`>`)) {
+                    mention = mention.slice(2, -1);
+
+                    if (mention.startsWith(`!`)) {
+                        mention = mention.slice(1);
+                    }
+
+                    return client.users.cache.get(mention);
+                }
+            }
+            if (getUser(args[0])) {
+                user = getUser(args[0]);
+            } else {
+                const errEmbed = new Discord.MessageEmbed()
+                .setColor('#36393f')
+                .setDescription(`<:tickNo:700331270210846780> I may be blind, but I don't see that user here.`)
+                return message.channel.send(errEmbed).catch(err => err);
+            }
         }
         let stars = parseInt(args[1]);
         if (!stars) {
@@ -27,12 +44,29 @@ module.exports = {
             .setDescription(`<:tickNo:700331270210846780> Uhm... I don't think that is a number.`)
             return message.channel.send(errEmbed).catch(err => err);
         }
-        let channel = message.mentions.channels.first();
+        let channel = message.guild.channels.cache.get(args[2]);
         if (!channel) {
-            const errEmbed = new Discord.MessageEmbed()
-            .setColor('#36393f')
-            .setDescription(`<:tickNo:700331270210846780> I may be blind, but I don't see that channel here.`)
-            return message.channel.send(errEmbed).catch(err => err);
+            function getChannel(mention) {
+                if (!mention) return;
+                
+                if (mention.startsWith(`<#`) && mention.endsWith(`>`)) {
+                    mention = mention.slice(2, -1);
+
+                    if (mention.startsWith(`!`)) {
+                        mention = mention.slice(1);
+                    }
+
+                    return client.users.cache.get(mention);
+                }
+            }
+            if (getChannel(args[2])) {
+                channel = getChannel(args[2]);
+            } else {
+                const errEmbed = new Discord.MessageEmbed()
+                .setColor('#36393f')
+                .setDescription(`<:tickNo:700331270210846780> I may be blind, but I don't see that channel here.`)
+                return message.channel.send(errEmbed).catch(err => err);
+            }
         }
         let content = args.slice(3).join(' ');
         const starsBetween = function(Stars,min,max) {

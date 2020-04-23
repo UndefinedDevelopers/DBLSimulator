@@ -2,8 +2,8 @@ const Discord = require('discord.js');
 const fse = require('fs-extra');
 
 module.exports = {
-    name: "decline",
-    description: "Declines a user.",
+    name: "Kick",
+    description: "Kicks a user.",
     usage: '<mention or id> [reason]',
     category: 'dbl',
 
@@ -28,29 +28,29 @@ module.exports = {
             } else {
                 const errEmbed = new Discord.MessageEmbed()
                 .setColor('36393f')
-                .setDescription(`<:tickNo:700331270210846780> I may be blind, but I don't see that user here.`)
+                .setDescription(`<:tickNo:700331270210846780> Uhm... Could you try again? I didn't get who I need to kick.`)
 
                 return message.channel.send(errEmbed).catch(err => err);
             }
         }
         fse.readJson(`reasons.json`, async(err, reasons) => {
+            let Case = Math.floor(Math.random() * (50000 - 20000) + 20000);
             let reason = args.slice(1).join(' ');
-
-            /*
-             * ! Case is not defined, someone please fix.
-             * Fixed. Case isn't supposed to be be in this one.
-             */
-            let declineEmbed = new Discord.MessageEmbed()
-                .setTitle(`Decline`)
+            let kickEmbed = new Discord.MessageEmbed()
+                .setTitle(`kick | Case #${Case}`)
                 .setColor('#dd2e44')
-            declineEmbed.addField("Bot", `${user.tag} (${user})`, true);
-            if (!reason) {
-                reason = reasons.declineReason[Math.round(Math.random() * (6 - 0) + 0)];
+            if (user.bot) {
+                kickEmbed.addField("Bot", `${user.tag} (${user})`, true);
+            } else {
+                kickEmbed.addField("User", `${user.tag} (${user})`, true);
             }
-            declineEmbed.addField(`Moderator`, `${message.author.tag}`, true);
-            declineEmbed.addField(`Reason`, reason);
-            declineEmbed.setTimestamp();
-            await message.channel.send(declineEmbed);
+            if (!reason) {
+                reason = reasons.kickReason[Math.round(Math.random() * (8 - 0) + 0)];
+            }
+            kickEmbed.addField(`Moderator`, `${message.author.tag}`, true);
+            kickEmbed.addField(`Reason`, reason);
+            kickEmbed.setTimestamp();
+            await message.channel.send(kickEmbed);
         });
     }
 }

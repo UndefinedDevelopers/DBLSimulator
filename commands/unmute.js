@@ -4,17 +4,34 @@ const fse = require('fs-extra');
 module.exports = {
     name: "unmute",
     description: "Unmutes a user.",
-    usage: '<mention or tag or id> [reason]',
+    usage: '<mention or id> [reason]',
     category: 'dbl',
 
     async code(client, message, args) {
-        let user = message.mentions.users.first();
+        let user = client.users.cache.get(args[0]);
         if (!user) {
-            const errEmbed = new Discord.MessageEmbed()
-            .setColor('#36393f')
-            .setDescription(`<:tickNo:700331270210846780> I may be blind, but I don't see that user here.`)
+            function getUser(mention) {
+                if (!mention) return;
+                
+                if (mention.startsWith(`<@`) && mention.endsWith(`>`)) {
+                    mention = mention.slice(2, -1);
 
-            return message.channel.send(errEmbed).catch(err => err);
+                    if (mention.startsWith(`!`)) {
+                        mention = mention.slice(1);
+                    }
+
+                    return client.users.cache.get(mention);
+                }
+            }
+            if (getUser(args[0])) {
+                user = getUser(args[0]);
+            } else {
+                const errEmbed = new Discord.MessageEmbed()
+                .setColor('#36393f')
+                .setDescription(`<:tickNo:700331270210846780> I may be blind, but I don't see that user here.`)
+
+                return message.channel.send(errEmbed).catch(err => err);
+            }
         }
         fse.readJson(`reasons.json`, async(err, reasons) => {
             let Case = Math.floor(Math.random() * (50000 - 20000) + 20000);
@@ -29,9 +46,9 @@ module.exports = {
             }
             if (!reason) {
                 if (user.bot) {
-                    reason = reasons.botunmuteReason[Math.floor(Math.random() * (4 - 0) + 0)];
+                    reason = reasons.botunmuteReason[Math.round(Math.random() * (4 - 0) + 0)];
                 } else {
-                    reason = reasons.unmuteReason[Math.floor(Math.random() * (1 - 0) + 0)];
+                    reason = reasons.unmuteReason[Math.round(Math.random() * (1 - 0) + 0)];
                 }
                 if (reason === 'Time\'s up') {
                     reason = reason+` #${Case-47}`;

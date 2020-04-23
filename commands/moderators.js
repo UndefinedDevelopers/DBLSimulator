@@ -21,7 +21,7 @@ module.exports = {
         "how do I become a mod?",
         "readd my bot please."];
 
-        let x = Math.floor(Math.random() * (11 - 0) + 0);
+        let x = Math.round(Math.random() * (11 - 0) + 0);
 
         await message.channel.send(`@Moderators ${ats[x]}`).catch(err => err);
     }
