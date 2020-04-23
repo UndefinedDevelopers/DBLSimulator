@@ -23,25 +23,6 @@ for (const file of commandFiles) {
     client.commands.set(command.name, command);
 }
 
-client.on('message', message => {
-    if(message.author.bot) return;
-    if (message.channel.type === 'dm') return;
-    let prefix = process.env.PREFIX;
-    if (!message.content.toLowerCase().startsWith(prefix) || message.author.bots) return;
-    const args = message.content.slice(prefix.length).split(/ +/);
-    const commandName = args.shift().toLowerCase();
-    const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
-
-    if (!command) return;
-    
-    try {
-        return command.code(client, message, args);
-    } catch (error) {
-        return console.error(error);
-    }
-});
-// End of Command Handler
-
 try {
     let files = fs.readdirSync("./events/")
     files = files.filter(f => f.split(".").pop() === "js")
