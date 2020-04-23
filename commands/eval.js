@@ -15,7 +15,9 @@ module.exports = {
         await chan.send(`${message.author.tag} (${message.author.id}) just ran the eval command in ${message.guild.name} (${message.guild.id}), ${message.channel.name} (${message.channel.id})\n\n\`\`\`js\n${code}\n\`\`\``);
         try {
             const evaled = eval(code)
-            message.channel.send(`\`\`\`js\n${evaled}\`\`\``).catch(err => message.channel.send(err))
+            message.channel.send(`\`\`\`js\n${evaled}\`\`\``).catch(err => {
+                message.channel.send(err)
+            })
         } catch(err) {
             message.channel.send(err)
         }
