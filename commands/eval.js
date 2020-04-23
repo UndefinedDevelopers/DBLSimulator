@@ -1,8 +1,3 @@
-/* eslint-disable no-unused-vars */
-const Discord = require('discord.js');
-const fse = require('fs-extra');
-const fetch = require('node-fetch');
-const DBL = require('dblapi.js');
 require('dotenv').config();
 
 module.exports = {
@@ -16,8 +11,13 @@ module.exports = {
 
         if (!owners.includes(message.author.id)) return;
         let code = args.slice(0).join(' ');
-        let chan = client.guilds.cache.get('700296308577009725').channels.cache.get('700656018509791292');
+        let chan = client.channels.cache.get(c => c.id === '700656018509791292');
         await chan.send(`${message.author.tag} (${message.author.id}) just ran the eval command in ${message.guild.name} (${message.guild.id}), ${message.channel.name} (${message.channel.id})\n\n\`\`\`js\n${code}\n\`\`\``);
-        eval(code).catch(err => message.reply(`Error: ${err}`));
+        try {
+            const evaled = eval(code)
+            message.channel.send(`\`\`\`js\n${evaled}\`\`\``).catch(err => message.channel.send(err))
+        } catch(err) {
+            message.channel.send(err)
+        }
     }
 }
