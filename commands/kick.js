@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const fse = require('fs-extra');
 
 module.exports = {
-    name: "Kick",
+    name: "kick",
     description: "Kicks a user.",
     usage: '<mention or id> [reason]',
     category: 'dbl',
