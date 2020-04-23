@@ -24,7 +24,7 @@ for (const file of commandFiles) {
 }
 
 client.on('message', message => {
-    if (msg.author.bot) return;
+    if(message.author.bot) return;
     if (message.channel.type === 'dm') return;
     let prefix = process.env.PREFIX;
     if (!message.content.toLowerCase().startsWith(prefix) || message.author.bots) return;
