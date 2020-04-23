@@ -66,7 +66,7 @@ try {
     }
     console.log(`Successfully loaded ${loadednum} events.\n`)
 } catch(err) {
-    console.log(err)
+    console.log(err);
 }
 
 client.on('ready', () => {
