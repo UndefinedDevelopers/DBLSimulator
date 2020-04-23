@@ -48,6 +48,10 @@ module.exports = {
                    .setDescription(`<:tickNo:700331270210846780> I may be blind, but I don't see that bot on top.gg.`)
                return message.channel.send(errEmbed).catch(err => err);
             }
+            let owners = [];
+            for (const owner of Bot.owners) {
+                owners.push(`<@!${owner}>`);
+            }
         
            let botLinks = []
            if (Bot.invite) botLinks.push(`[Invite](${Bot.invite})`);
@@ -69,8 +73,8 @@ module.exports = {
                .addField(`Total Upvotes`, Bot.points, true)
                .addField(`Monthly Upvotes`, Bot.monthlyPoints, true)
                .addField(`Server Count`, `${Bot.server_count} Servers`, true)
-               .addField(`Owner(s)`, Bot.owners, true)
-               .addField(`Links`, botLinks, true)
+               .addField(`Owner(s)`, owners.join('\n'), true)
+               .addField(`Links`, botLinks.join(' | '), true)
          
            return message.channel.send(botInfoEmbed).catch(err => err);
          });
