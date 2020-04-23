@@ -3,7 +3,7 @@ const client = new Client();
 const fs = require('fs');
 require('dotenv').config();
 const DBL = require('dblapi.js');
-const dbl = new DBL(process.env.TOPGGTOKEN, client);
+const dbl = new DBL(process.env.TOPGGTOKEN, { webhookPort: 4000, webhookAuth: process.env.TOPGGWEBHOOK }, client);
 
 dbl.on('posted', () => {
     console.log(`Server count posted! | ${client.guilds.cache.size} servers`);
