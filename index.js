@@ -1,5 +1,5 @@
-const Discord = require('discord.js');
-const client = new Discord.Client();
+const { Client, Collection } = require('discord.js');
+const client = new Client();
 const fs = require('fs');
 require('dotenv').config();
 const DBL = require('dblapi.js');
@@ -14,7 +14,7 @@ dbl.on('error', err => {
 })
 
 // Command Handler
-client.commands = new Discord.Collection();
+client.commands = new Collection();
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
