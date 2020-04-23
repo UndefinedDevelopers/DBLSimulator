@@ -16,7 +16,7 @@ module.exports = (client, message) => {
             color: 0x36393F,
             description: "<:tickNo:700331270210846780> Sorry, but that command is developer only."
         }})
-        return command.code(client, message, args);
+        command.code(client, message, args);
     } catch (error) {
         return console.error(error);
     }
