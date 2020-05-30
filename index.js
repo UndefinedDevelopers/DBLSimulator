@@ -3,7 +3,10 @@ const client = new Client();
 const fs = require('fs');
 require('dotenv').config();
 const DBL = require('dblapi.js');
-const dbl = new DBL(process.env.TOPGGTOKEN, { webhookPort: 4000, webhookAuth: process.env.TOPGGWEBHOOK }, client);
+const dbl = new DBL(process.env.TOPGGTOKEN, {
+    webhookPort: 4000,
+    webhookAuth: process.env.TOPGGWEBHOOK
+}, client);
 
 dbl.on('posted', () => {
     console.log(`Server count posted! | ${client.guilds.cache.size} servers`);
@@ -26,27 +29,27 @@ for (const file of commandFiles) {
 try {
     let files = fs.readdirSync("./events/")
     files = files.filter(f => f.split(".").pop() === "js")
-    if(files.length === 0) {
+    if (files.length === 0) {
         console.log("There are no events to load.\n\n")
         return;
     }
 
     let loadednum = 0
-    for(let i = 0; i < files.length; i++) {
+    for (let i = 0; i < files.length; i++) {
         const _event = files[i].slice(0, -3)
         try {
             const event = require(`./events/${files[i]}`)
             client.on(files[i].slice(0, -3), event.bind(null, client))
             console.log(`Successfully loaded event ${_event}.`)
             loadednum++
-        } catch(err) {
+        } catch (err) {
             const trace = err.stack.toString().split("\n").slice(0, 3).join("\n")
             console.log(`An error occured while trying to load ${_event}\n${trace}`)
             console.log(`Could not load the event ${_event}.`)
         }
     }
     console.log(`Successfully loaded ${loadednum} events.\n`)
-} catch(err) {
+} catch (err) {
     console.log(err)
 }
 

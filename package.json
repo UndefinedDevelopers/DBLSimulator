@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/CollierDevs/DBLSimulator.git"
   },
-  "author": "CollierDevs, Aprixia, and sammy.",
+  "author": "Undefined Developers",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/CollierDevs/DBLSimulator/issues"
@@ -24,7 +24,5 @@
     "fs": "0.0.1-security",
     "fs-extra": "^9.0.0"
   },
-  "devDependencies": {
-    "eslint": "^6.8.0"
-  }
+  "devDependencies": {}
 }
